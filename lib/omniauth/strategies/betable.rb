@@ -38,7 +38,7 @@ module OmniAuth
       def build_access_token
         headers = {
           :headers => {
-            'Authorization' => "Basic " + Base64.encode64(client_id + ":" + client_secret).gsub(/\n/, '')
+            'Authorization' => "Basic " + Base64.encode64(client.id + ":" + client.secret).gsub(/\n/, '')
           }
         }
         verifier = request.params['code']
