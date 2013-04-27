@@ -28,7 +28,9 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= deep_symbolize(access_token.params)
+        access_token.options[:mode] = :query
+        access_token.options[:param_name] = :access_token
+        @raw_info ||= MultiJson.load(access_token.get('https://api.betable.com/1.0/account').body)
       end
 
       def request_phase
