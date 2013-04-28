@@ -38,20 +38,15 @@ You will obviously have to put in your key and secret, which you can get from th
 
 After you have the gem running and the configuration is done, you can get to the follow url to log the user in:
 
-```http
 	http://localhost:3000/auth/betable
-```
 
 The Omniauth Hash will look like this:
-```ruby
-	<OmniAuth::AuthHash credentials=#<OmniAuth::AuthHash expires=false token="ACCESS_TOKEN"> extra=#<OmniAuth::AuthHash raw_info=#<OmniAuth::AuthHash first_name="Stefano" id="oIt0z5JsHXiRS0Ez" last_name="Bernardi">> info=#<OmniAuth::AuthHash::InfoHash first_name="Stefano" last_name="Bernardi"> provider="betable" uid="oIt0z5JsHXiRS0Ez">
-```
+
+	#<OmniAuth::AuthHash credentials=#<OmniAuth::AuthHash expires=false token="ACCESS_TOKEN"> extra=#<OmniAuth::AuthHash raw_info=#<OmniAuth::AuthHash first_name="Stefano" id="oIt0z5JsHXiRS0Ez" last_name="Bernardi">> info=#<OmniAuth::AuthHash::InfoHash first_name="Stefano" last_name="Bernardi"> provider="betable" uid="oIt0z5JsHXiRS0Ez">
 
 In your game configuration on developers.betable.com you should set the redirect URI to:
 
-```http
 	http://your_server:port/auth/betable/callback
-```
 
 Questions
 ---------
