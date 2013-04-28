@@ -12,12 +12,12 @@ module OmniAuth
         :token_url => 'https://api.betable.com/1.0/token'
       }
 
-      uid { raw_info[:id] }
+      uid { raw_info['id'] }
 
       info do
         {
-          :first_name => raw_info[:first_name],
-          :last_name => raw_info[:last_name]
+          :first_name => raw_info['first_name'],
+          :last_name => raw_info['last_name']
         }
       end
 
