@@ -9,34 +9,49 @@ How To Use It
 -------------
 
 If you are using rails, you need to add the gem to your `Gemfile`:
-
+```ruby
     gem 'omniauth-betable'
-
+```
 You can pull them in directly from github e.g.:
-
+```ruby
     gem "omniauth-betable", :git => "git://github.com/stefanobernardi/omniauth-betable.git"
+```
 
-Once these are in, you need to add the following to your `config/initializers/omniauth.rb`:
+Then integrate the strategy into your middleware:
 
-    Rails.application.config.middleware.use OmniAuth::Builder do
-    	provider :betable, 'api_key', 'api_secret'
-    end
+```ruby
+use OmniAuth::Builder do
+  provider :betable, 'api_key', 'api_secret'
+end
+```
 
+In Rails, you'll want to add to the middleware stack:
+
+```ruby
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :betable, E'api_key', 'api_secret'
+end
+```
 
 You will obviously have to put in your key and secret, which you can get from the game dashboard.
 
 
 After you have the gem running and the configuration is done, you can get to the follow url to log the user in:
 
+```ruby
 	http://localhost:3000/auth/betable
+```
 
 The Omniauth Hash will look like this:
-
+```ruby
 	#<OmniAuth::AuthHash credentials=#<OmniAuth::AuthHash expires=false token="ACCESS_TOKEN"> extra=#<OmniAuth::AuthHash raw_info=#<OmniAuth::AuthHash first_name="Stefano" id="oIt0z5JsHXiRS0Ez" last_name="Bernardi">> info=#<OmniAuth::AuthHash::InfoHash first_name="Stefano" last_name="Bernardi"> provider="betable" uid="oIt0z5JsHXiRS0Ez">
+```
 
 In your game configuration on developers.betable.com you should set the redirect URI to:
 
+```ruby
 	http://your_server:port/auth/betable/callback
+```
 
 Questions
 ---------
