@@ -29,7 +29,7 @@ In Rails, you'll want to add to the middleware stack:
 
 ```ruby
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :betable, E'api_key', 'api_secret'
+  provider :betable, 'api_key', 'api_secret'
 end
 ```
 
